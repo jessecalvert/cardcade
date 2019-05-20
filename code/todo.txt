@@ -1,0 +1,63 @@
+TODO
+
+- game
+	- more abilities
+	- record a history, and be able to view what has happened in the game so far
+	- define cards in a text file
+		- do we need to use some kind of scripting language to define what cards do?
+		- most cards just fiddle with stats, more complicated cards like Swap and Taunt are problems.
+	- better ui for cards
+		- fancy arrows
+		- make it clear what is selected/targeted/etc.
+
+- platform layer
+	- multiplayer over internet
+	- add audio
+	- get renderer/shader/asset hotloading back
+	- platform code hot reloading
+		- save memory, start a new process with the new code, then exit?
+			- can we keep debugging if we start a new process?
+
+- assets
+	- prefetch assets
+		- we are waiting until the moment we need the asset before requesting them.
+
+- AI
+	- anything?
+
+- debug
+	- More UI things
+		- view vectors and matrices better
+			- graphical view
+		- modify more types
+	- How do you time things happening on the GPU?
+		- probably could use glFlush(), but it would slow everything down.
+	- More memory_region data.
+		- debug_event for allocations/deallocations, temporary_memory, ... ?
+	- a scrollbar? things are getting crowded.
+	- console
+		- input
+			- input capture
+			- register functions that can be run from the console
+				- typechecking, varargs, casts, composition
+		- scroll up in history
+		- Colors per character or word
+			- escape characters?
+		- message types
+			- pop up automatically on errors?
+	- FreeTimeBlockRecursive
+		- remove recursion, then remember to reduce stack size.
+
+MISC:
+
+- new matrix format
+	- make simd-izable
+	- most matrices are mostly zeros, mults and inverses could be easier if
+		we could inspect this first.
+
+- Simple preprocessor
+	- infinite loops with some syntax errors.
+		- ';' instead of ',' in enum.
+	- doesn't look at the platform layer or renderer!
+	- ast?
+	- process console commands
